@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+<main class="quotation__viewport">
+    <div class="quotation__form">
+        <form action="" class="">
+            <input type="number" name="pagoMin" id="pagoMin" placeholder="Pago Mínimo" min="1">
+            <input type="number" name="pagoMax" id="pagoMax" placeholder="Pago Máximo">
+            <span class="quotation__button one-column" onclick="verificarFactibilidad();">Verifica factibilidad</span>
+            <select name="tipotarifa" id="tipotarifa" hidden>
+                <option value="null" selected disabled>Tipo de tarifa</option>
+                {% with tipostarifa = tipotarifa %}
+                {% for tipotarifa in tipostarifa%}
+                <option value="{{tipotarifa[0]}}">{{tipotarifa[1]}}</option>
+                {% endfor %}
+                {% endwith %}
+            </select>
+            <select name="tarifa" id="tarifa" hidden disabled>
+                <option value="null" selected disabled>Tarifa</option>
+                {% with tarifas = tarifa %}
+                {% for tarifa in tarifas %}
+                <option value="{{tarifa[0]}}">{{tarifa[2]}}</option>
+                {% endfor %}
+                {% endwith %}
+            </select>
+            <select name="municipio" id="municipio" class="one-column" hidden>
+                <option value="null" selected disabled>Selecciona tu Municipio</option>
+                {% with municipios = municipios %}
+                {% for municipio in municipios %}
+                <option value="{{municipio[0]}}">{{municipio[1]}}</option>
+                {% endfor %}
+                {% endwith %}
+            </select>
+        </form>
+    </div>
+    <div class="quotation__description">
+
+    </div>
+</main>
+<script src="{{ url_for('static', filename = 'js/quotation.js') }}"></script>
+{% endblock %}

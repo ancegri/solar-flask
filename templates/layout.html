@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energía Solar | ANCEGRI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/services.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/quotation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/animations.css') }}">
+</head>
+<body>
+    <header id="header__principal">
+        <h1>ANCEGRI | Energía Solar</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Inicio</a>
+            <a href="{{ url_for('services') }}">Servicios</a>
+            <a href="{{ url_for('quotation') }}">Cotización</a>
+        </nav>
+    </header>
+    <div class="header__wrapper"></div>
+    <script src="{{ url_for('static', filename = 'js/header.js') }}"></script>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

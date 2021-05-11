@@ -1,0 +1,50 @@
+header{
+    width: 100vw;
+    height: 10rem;
+    transition: all 0.5s;
+    position: fixed;
+    background-color: var(--color-primary);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+.header--scroll{
+    height: 7.5rem;
+}
+header h1{
+    transition: all 0.5s;
+    position: relative;
+    left: 10%;
+    color: var(--color-clear);
+}
+.header__title--scroll{
+    left: 0;
+}
+header nav{
+    width: 60%;
+    position: relative;
+    right: 20%;
+    display: flex;
+    justify-content: space-around;
+    transition: all 0.5s;
+}
+
+.header__nav--scroll{
+    width: 80%;
+    right: 10%;
+}
+header nav a{
+    transition: all 0.5s;
+    color: var(--color-clear);
+    text-decoration: none;
+}
+header nav a:hover{
+    transform: scale(1.2);
+    color: var(--color-tertiary);
+}
+.header__wrapper{
+    width: 100%;
+    height: 10rem;
+    background-color: var(--color-primary);
+}

@@ -1,0 +1,16 @@
+.services{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+.service{
+    height: 60rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.service__title{
+    background-color: var(--color-primary);
+}
+.service:nth-child(2n) .service__title{
+    order: 2;
+}
