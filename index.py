@@ -12,7 +12,7 @@ mysql = MySQL(app)
 def home():
     return render_template("index.html")
 
-@app.route("/services")
+@app.route("/servicios")
 def services():
     return render_template("servicios.html")
 
@@ -26,7 +26,6 @@ def quotation():
     cursor.execute("SELECT * FROM tarifa")
     tarifa = cursor.fetchall()
     return render_template("cotizacion.html", municipios = municipios, tipotarifa = tipotarifa, tarifa = tarifa)
-
 
 if __name__ == "__main__":
     app.run(debug=True)

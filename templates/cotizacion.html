@@ -1,40 +1,67 @@
-{% extends "layout.html" %}
-{% block body %}
+{% extends "layout.html" %} {% block body %}
 <main class="quotation__viewport">
-    <div class="quotation__form">
-        <form action="" class="">
-            <input type="number" name="pagoMin" id="pagoMin" placeholder="Pago Mínimo" min="1">
-            <input type="number" name="pagoMax" id="pagoMax" placeholder="Pago Máximo">
-            <span class="quotation__button one-column" onclick="verificarFactibilidad();">Verifica factibilidad</span>
-            <select name="tipotarifa" id="tipotarifa" hidden>
-                <option value="null" selected disabled>Tipo de tarifa</option>
-                {% with tipostarifa = tipotarifa %}
-                {% for tipotarifa in tipostarifa%}
-                <option value="{{tipotarifa[0]}}">{{tipotarifa[1]}}</option>
-                {% endfor %}
-                {% endwith %}
-            </select>
-            <select name="tarifa" id="tarifa" hidden disabled>
-                <option value="null" selected disabled>Tarifa</option>
-                {% with tarifas = tarifa %}
-                {% for tarifa in tarifas %}
-                <option value="{{tarifa[0]}}">{{tarifa[2]}}</option>
-                {% endfor %}
-                {% endwith %}
-            </select>
-            <select name="municipio" id="municipio" class="one-column" hidden>
-                <option value="null" selected disabled>Selecciona tu Municipio</option>
-                {% with municipios = municipios %}
-                {% for municipio in municipios %}
-                <option value="{{municipio[0]}}">{{municipio[1]}}</option>
-                {% endfor %}
-                {% endwith %}
-            </select>
-        </form>
-    </div>
-    <div class="quotation__description">
-
-    </div>
+  <div class="quotation__form">
+    <p id="form__instructions">
+        Introduzca el monto más bajo y el más alto que ha pagado en su recibo de
+        luz para verificar la factibildad de la implementación de un sistema
+        fotovoltaico en su localidad.
+      </p>
+    <form action="POST">
+      <input
+        type="number"
+        name="pagoMin"
+        id="pagoMin"
+        placeholder="Pago Mínimo"
+        min="1"
+        required
+      />
+      <input
+        type="number"
+        name="pagoMax"
+        id="pagoMax"
+        placeholder="Pago Máximo"
+        required
+      />
+      <span
+        class="quotation__button one-column"
+        onclick="verificarFactibilidad();"
+        >Verifica factibilidad</span
+      >
+      <select name="tipotarifa" id="tipotarifa" required hidden>
+        <option value="null" selected disabled>Tipo de tarifa</option>
+        {% with tipostarifa = tipotarifa %} {% for tipotarifa in tipostarifa%}
+        <option value="{{tipotarifa[0]}}">{{tipotarifa[1]}}</option>
+        {% endfor %} {% endwith %}
+      </select>
+      <select name="tarifa" id="tarifa" required hidden disabled>
+        <option value="null" selected disabled>Tarifa</option>
+        {% with tarifas = tarifa %} {% for tarifa in tarifas %}
+        <option value="{{tarifa[0]}}">{{tarifa[2]}}</option>
+        {% endfor %} {% endwith %}
+      </select>
+      <select name="municipio" id="municipio" class="one-column" required hidden>
+        <option value="null" selected disabled>Selecciona tu Municipio</option>
+        {% with municipios = municipios %} {% for municipio in municipios %}
+        <option value="{{municipio[0]}}">{{municipio[1]}}</option>
+        {% endfor %} {% endwith %}
+      </select>
+      <p class="output"></p>
+      <p class="output"></p>
+      <input type="text" name="name" id="name" placeholder="Nombre completo" class="one-column" required hidden>
+      <input type="email" name="email" id="email" placeholder="Correo electrónico" required hidden>
+      <input type="tel" name="phone" id="phone" placeholder="Telefono" required hidden>
+      <input type="file" name="recibo" id="recibo" hidden class="one-column">
+      <textarea name="message" id="message" placeholder="Mensaje adicional" hidden></textarea>
+      <input id="isubmit" type="submit" value="Enviar" hidden>
+      <select name="hsp" id="hsp" hidden>
+        <option value="null" selected disabled>null</option>
+        {% with municipios = municipios %} {% for municipio in municipios %}
+        <option value="{{municipio[0]}}">{{municipio[2]}}</option>
+        {% endfor %} {% endwith %}
+      </select>
+    </form>
+  </div>
+  <div class="quotation__description"></div>
 </main>
 <script src="{{ url_for('static', filename = 'js/quotation.js') }}"></script>
 {% endblock %}

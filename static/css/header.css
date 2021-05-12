@@ -17,6 +17,7 @@ header h1{
     position: relative;
     left: 10%;
     color: var(--color-clear);
+    user-select: none;
 }
 .header__title--scroll{
     left: 0;
