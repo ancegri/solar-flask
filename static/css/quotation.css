@@ -18,25 +18,25 @@
 }
 .output{
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.5;
 }
 .output span{
-    font-size: 4rem;
+    font-size: 2.5rem;
     background-color: lightgreen;
     color: var(--color-secondary);
-    padding: 1rem;
+    padding: 0m;
     border-radius: 0.5rem;
 }
 .quotation__form form{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     padding: 5rem;
 }
 .quotation__form form input,
 .quotation__form form select{
-    padding: 1.5rem;
+    padding: 2rem;
     border: none;
     border-bottom: 0.01rem solid;
 }
@@ -49,9 +49,21 @@
     background-color: rgb(0, 150, 0);
     cursor: pointer;
 }
+.quotation__form form select:disabled{
+    background-color: transparent;
+    cursor: pointer;
+}
 .one-column{
     grid-column-start: 1;
+    grid-column-end: 5;
+}
+.row-span-left{
+    grid-column-start: 1;
     grid-column-end: 3;
+}
+.row-span-right{
+    grid-column-start: 3;
+    grid-column-end: 5;
 }
 .quotation__description{
     background-color: var(--color-primary);

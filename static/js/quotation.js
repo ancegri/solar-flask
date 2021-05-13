@@ -55,10 +55,14 @@ selectMunicipio.addEventListener("change", ()=>{
     var promediop = (parseFloat(inputPagoMinimo.value)+parseFloat(inputPagoMaximo.value))/2;
     var ahorro = ahorroAnual(promediop,potenciafv);
     var inversion = costoSistemaFV(potenciafv);
-    outputs[0].innerHTML = "Tamaño del sistema solar FV<br><span>"+potenciafv.toFixed(2)+"kWh</span>";
+    outputs[0].innerHTML = "Tamaño del sistema Solar:<br><span>"+((potenciafv)*numeromfv).toFixed(2)+"kWh</span><br>con <span>"+Math.round(numeromfv)+" Paneles</span>";
     outputs[0].style = "animation: appear 0.5s;";
-    outputs[1].innerHTML = "Inversión<br><span>$"+inversion.toFixed(2)+" MXN</span>";
+    outputs[1].innerHTML = "Ahorro anual:<br><span>$"+ahorro+" MXN</span>";
     outputs[1].style = "animation: appear 0.5s;";
+    outputs[2].innerHTML = "Inversión:<br><span>$"+inversion.toFixed(2)+" MXN</span>";
+    outputs[2].style = "animation: appear 0.5s;";
+    outputs[3].innerHTML = "Periodo de Recuperación:";
+    outputs[3].style = "animation: appear 0.5s;";
     instructionsP.style = "background-color: green;"
     instructionsP.innerHTML = "Introduzca sus datos personales y (opcionalmente) su recibo para un calculo más aproximado"
     inputNombre.hidden = false;
@@ -90,8 +94,6 @@ function consumoEnergetico(pago_minimo, pago_maximo) {
  };
  function ahorroAnual(promediopago, potenciafv) {
      pi = potenciaInversor(potenciafv);
-     console.log(promediopago);
-     console.log("La potencia del inversor es de: "+pi);
      return ((promediopago*pi)-1140);
  };
  function potenciaInversor(potenciafv) {

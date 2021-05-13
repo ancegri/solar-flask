@@ -1,3 +1,19 @@
 {% extends "layout.html" %}
 {% block body %}
+<section>
+    <div class="slider">
+        <div class="slider__slide">
+
+        </div>
+        <div class="slider__slide">
+
+        </div>
+        <div class="slider__slide">
+
+        </div>
+        <span id="back" onclick="changeSlide('back')" class="slider__button"><</span>
+        <span id="next" onclick="changeSlide('next')" class="slider__button slider__button--right">></span>
+    </div>
+</section>
+<script src="{{ url_for('static', filename = 'js/slider.js') }}"></script>
 {% endblock %}
