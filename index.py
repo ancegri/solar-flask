@@ -1,3 +1,4 @@
+from MySQLdb.cursors import Cursor
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_mysqldb import MySQL
 
@@ -12,7 +13,13 @@ app.secret_key = "0024"
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    cursor = mysql.connection.cursor()
+    cursor.execute("""SELECT id_blog, titulo, fecha, SUBSTRING(texto, 1, 255), imagen 
+                      FROM blog 
+                      ORDER BY id_blog DESC 
+                      LIMIT 3""")
+    entradasBlog = cursor.fetchall()
+    return render_template("index.html", entradas = entradasBlog)
 
 @app.route("/servicios")
 def services():

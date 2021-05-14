@@ -1,19 +1,41 @@
-{% extends "layout.html" %}
-{% block body %}
-<section>
-    <div class="slider">
-        <div class="slider__slide">
-
-        </div>
-        <div class="slider__slide">
-
-        </div>
-        <div class="slider__slide">
-
-        </div>
-        <span id="back" onclick="changeSlide('back')" class="slider__button"><</span>
-        <span id="next" onclick="changeSlide('next')" class="slider__button slider__button--right">></span>
-    </div>
+{% extends "layout.html" %} {% block body %}
+<section class="slider__viewport">
+  <div class="slider">
+    <div class="slider__slide" style="left: 0vw"></div>
+    <div class="slider__slide" style="left: 0vw"></div>
+    <span id="back" onclick="changeSlide('previous')" class="slider__button"
+      ><</span
+    >
+    <span
+      id="next"
+      onclick="changeSlide('next')"
+      class="slider__button slider__button--right"
+      >></span
+    >
+  </div>
+</section>
+<section class="blog__viewport">
+  <div class="blog">
+    {% with entraces = entradas %}
+    {% if entraces %}
+    {% for entrance in entraces %}
+    <article class="blog__entrance">
+      <div class="blog__image"></div>
+      <div class="blog__info">
+        <a href="#" class="blog__title"><h4>{{entrance[1]}}</h4></a>
+        <p class="blog__date">
+          Publicado el <span>{{entrance[2]}}</span> por <span>Admin</span>
+        </p>
+        <p class="blog__text">
+          {{entrance[3]}}
+        </p>
+      </div>
+      <a href="#" class="blog__button">Ver entrada -></a>
+    </article>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
 </section>
 <script src="{{ url_for('static', filename = 'js/slider.js') }}"></script>
 {% endblock %}

@@ -3,6 +3,7 @@ header{
     height: 10rem;
     transition: all 0.5s;
     position: fixed;
+    z-index: 100;
     background-color: var(--color-primary);
     display: grid;
     grid-template-columns: repeat(2, 1fr);

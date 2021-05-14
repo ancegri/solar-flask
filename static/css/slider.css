@@ -1,16 +1,17 @@
 .slider{
     width: 100vw;
     height: 70rem;
+    max-width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
 }
 .slider__slide{
-    width: 100%;
+    width: 100vw;
     height: 100%;
     position: relative;
-    left: 0vw;
     background-color: teal;
     transition: all 0.5s;
 }
