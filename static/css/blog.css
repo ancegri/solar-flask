@@ -20,6 +20,8 @@
     width: 30rem;
     height: 20rem;
     background-color: azure;
+    background-position: center;
+    background-size: cover;
 }
 .blog__info .blog__title::after {
     content: '';

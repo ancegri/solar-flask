@@ -1,0 +1,20 @@
+.footer__viewport{
+    width: 100vw;
+    max-width: 100%;
+    background-color: var(--color-secondary);
+    color: var(--color-clear);
+}
+.footer{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+.footer__viewport p{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 1rem;
+}

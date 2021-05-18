@@ -1,4 +1,3 @@
-from MySQLdb.cursors import Cursor
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_mysqldb import MySQL
 
@@ -11,19 +10,28 @@ mysql = MySQL(app)
 
 app.secret_key = "0024"
 
+
 @app.route("/")
 def home():
     cursor = mysql.connection.cursor()
+    cursor.execute("SELECT * FROM slide")
+    slides = cursor.fetchall()
+    print(slides)
     cursor.execute("""SELECT id_blog, titulo, fecha, SUBSTRING(texto, 1, 255), imagen 
                       FROM blog 
                       ORDER BY id_blog DESC 
                       LIMIT 3""")
     entradasBlog = cursor.fetchall()
-    return render_template("index.html", entradas = entradasBlog)
+    cursor.execute("SELECT * FROM infocontacto")
+    infoContacto = cursor.fetchall()
+    return render_template("index.html", entradas = entradasBlog, slideList = slides, contactInfo = infoContacto)
 
 @app.route("/servicios")
 def services():
-    return render_template("servicios.html")
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT * FROM infocontacto")
+    infoContacto = cursor.fetchall()
+    return render_template("servicios.html", contactInfo = infoContacto)
 
 @app.route("/cotizacion")
 def quotation():
@@ -59,6 +67,10 @@ def sendQuotation():
         mysql.connection.commit()
         flash("Se han enviado tus datos")
         return redirect(url_for('quotation'))
+
+@app.route("/blog/<id>")
+def blogEntrance(id):
+    return render_template("entrance.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

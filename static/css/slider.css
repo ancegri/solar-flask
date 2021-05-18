@@ -12,11 +12,31 @@
     width: 100vw;
     height: 100%;
     position: relative;
-    background-color: teal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-clear);
     transition: all 0.5s;
+    background-position: center;
+    background-size: cover;
 }
-.slider__slide:nth-child(2n){
-    background-color: tomato;
+.slider__wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--color-primary);
+    opacity: 0.7;
+}
+.slider__slide h2{
+    position: relative;
+    z-index: 99;
+    font-size: 10rem;
+}
+.slider__slide h3{
+    font-size: 4rem;
+    z-index: 99;
+    text-transform: capitalize;
 }
 .slider__button{
     position: absolute;

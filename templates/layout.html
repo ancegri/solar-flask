@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/services.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/quotation.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/footer.css') }}">
 </head>
 <body>
     <header id="header__principal">
@@ -26,6 +27,8 @@
     <div class="header__wrapper"></div>
     <script src="{{ url_for('static', filename = 'js/header.js') }}"></script>
     {% block body %}
+    {% endblock %}
+    {% block footer %}
     {% endblock %}
 </body>
 </html>

@@ -19,3 +19,27 @@
     </div>
 </main>
 {% endblock %}
+{% block footer %}
+<section class="footer__viewport">
+  <div class="footer">
+    {% with info = contactInfo%}
+    {% if info %}
+    {% for item in info %}
+    <div><h4>Teléfono</h4><br><span>{{item[0]}}</span><h4>WEB</h4><br><span>{{item[1]}}</span><br><span>{{item[2]}}</span></div>
+    <div><h4>Ubicación</h4><br>{{item[3]}}</div>
+    <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d953.5558648832167!2d-96.71365657076934!3d17.061718899267138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c7223619028c53%3A0x59fb9a533575700!2sAntiguo%20Camino%20a%20Ixcotel%20114%2C%20Centro%2C%2068000%20Oaxaca%20de%20Ju%C3%A1rez%2C%20Oax.!5e0!3m2!1ses-419!2smx!4v1615401175187!5m2!1ses-419!2smx" width="213" height="160" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+    <p>Alianza nacional de cooperación energética y generación renovable integral 2021</p>
+</section>
+
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html></div>
+  </div>
+</section>
+{% endblock %}
